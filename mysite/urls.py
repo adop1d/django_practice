@@ -19,5 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Added this line to map the /about URL to the about view
-    path('home/',include('myapp.urls')) # Include the URLs from the myapp application
+    path('',include('myapp.urls')) # Include the URLs from the myapp application
 ]
