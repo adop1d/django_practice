@@ -23,4 +23,5 @@ def projects(request):
 
 def tasks(request):
     #task = get_object_or_404(Task)
-    return render(request, 'tasks.html')
+    task = Task.objects.all()
+    return render(request, 'tasks.html', {'task': task})

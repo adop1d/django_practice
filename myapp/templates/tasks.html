@@ -1,2 +1,16 @@
 <h1>tasks</h1>
 <p>This is the tasks page of the website.</p>
+<ul>
+    {% for t in task %}
+        <li>{{ t.title }} 
+            {% if t.description %}
+                - {{ t.description }}
+            {% else %}
+                - No description available.
+            {% endif %}
+            <h4><b>project: {{ t.project.name }}</b></h4>
+        </li>
+    {% empty %}
+        <li>No tasks available.</li>
+    {% endfor %}
+</ul>
