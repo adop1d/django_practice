@@ -1,16 +1,26 @@
 <h1>tasks</h1>
-<p>This is the tasks page of the website.</p>
+<p>This is the tasks page of the website.</p><br><br>
+<div>
 <ul>
     {% for t in task %}
-        <li>{{ t.title }} 
+        <li><h2>{% if t.done %} ✅ {% else %} ❌ {% endif %}  {{ t.title }}</h2>
             {% if t.description %}
                 - {{ t.description }}
             {% else %}
                 - No description available.
             {% endif %}
             <h4><b>project: {{ t.project.name }}</b></h4>
+
+        <button>
+            ❌ Delete
+        </button>
+        <button>
+            ✅ Mark as Complete
+        </button><br><br><br>
         </li>
     {% empty %}
         <li>No tasks available.</li>
     {% endfor %}
 </ul>
+</div>
+<br>
