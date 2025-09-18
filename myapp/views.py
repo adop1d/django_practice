@@ -4,10 +4,12 @@ from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
 def index (request):
-    return render(request, 'index.html')
+    title = "Welcome to my app!!"
+    return render(request, 'index.html', {'title': title})
 
 def about(request):
-    return render(request, 'about.html')
+    username = "Kelvin"
+    return render(request, 'about.html', {'username': username })
 
 def hello_world(request, username):
     print(username)
@@ -15,7 +17,8 @@ def hello_world(request, username):
 
 
 def projects(request):
-    projects = list(Project.objects.values())
+    #projects = list(Project.objects.values())
+    projects = Project.objects.all()
     return render(request, 'projects.html', {'projects': projects})
 
 def tasks(request):

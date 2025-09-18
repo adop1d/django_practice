@@ -1,2 +1,9 @@
 <h1>projects</h1>
 <p>This is the projects page of the website.</p>
+
+<ul>
+    {% for project in projects %}
+        <li>{{ project.name }}</li>
+    {% empty %}
+        <li>No projects available.</li>
+    {% endfor %}
