@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from .forms import TaskForm
 from .models import Task,Project
 from django.shortcuts import get_object_or_404, render
 
@@ -25,3 +26,6 @@ def tasks(request):
     #task = get_object_or_404(Task)
     task = Task.objects.all()
     return render(request, 'tasks.html', {'task': task})
+
+def create_task(request):
+    return render(request, 'create_task.html')
