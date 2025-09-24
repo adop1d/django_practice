@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Task,Project
-from .forms import createNewTaskForm
+from .forms import createNewTaskForm, createNewProjectForm
 from django.shortcuts import render,redirect
 
 # Create your views here.
@@ -20,16 +20,16 @@ def hello_world(request, username):
 def projects(request):
     #projects = list(Project.objects.values())
     projects = Project.objects.all()
-    return render(request, 'projects.html', {'projects': projects})
+    return render(request, 'projects/projects.html', {'projects': projects})
 
 def tasks(request):
     #task = get_object_or_404(Task)
     task = Task.objects.all()
-    return render(request, 'tasks.html', {'task': task})
+    return render(request, 'tasks/tasks.html', {'task': task})
 
 def create_task(request):
     if request.method == 'GET':
-        return render(request, 'create_task.html', {'form': createNewTaskForm(), 'success': True})
+        return render(request, 'tasks/create_task.html', {'form': createNewTaskForm(), 'success': True})
 
     else:
         Task.objects.create(
@@ -37,3 +37,12 @@ def create_task(request):
             description = request.POST['description'],
             project_id=2)
         return redirect('/home/tasks')
+
+def create_project(request):
+    if request.method == 'GET':
+        return render(request, 'projects/create_project.html', {'form': createNewProjectForm()})
+    else:
+        project = Project.objects.create(
+            name = request.POST['name'])
+        print(request.POST)
+        return render(request, 'projects/create_project.html', {'form': createNewProjectForm()})
