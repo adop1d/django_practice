@@ -1,15 +1,67 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+  }
+  nav {
+    background-color: #444;
+    overflow: hidden;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li {
+    float: left;
+  }
+  nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .container {
+    padding: 20px;
+  }
+  .footer1 {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+</style>
+
+
 <nav>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/home/projects">Projects</a></li>
     <li><a href="/home/tasks">Tasks</a></li>
     <li><a href="/home/about">About</a></li>
+    <li><a href="/home/create_task">Create a new task</a></li>
   </ul>
 </nav>
 
 {% block content %}
 {% endblock %}
 
-<footer>
+<footer class="footer1">
   <p>&copy; 2024 My Website</p>
 </footer>
