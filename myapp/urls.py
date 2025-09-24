@@ -2,11 +2,11 @@ from django.urls import path
 from . import views  # Import the view functions
 
 urlpatterns = [
-    path('',views.index),  # Added this line to map the root URL to the hello_world view,
-    path('home/about/', views.about),
-    path('<str:username>',views.hello_world),
-    path('home/projects/', views.projects),
-    path('home/tasks/', views.tasks),
-    path('home/create_task/', views.create_task),
-    path('home/create_project/', views.create_project),
+    path('',views.index, name='index'),  # Added this line to map the root URL to the hello_world view,
+    path('about/', views.about, name='about'),
+    path('hello/<str:username>',views.hello_world, name='hello'),
+    path('projects/', views.projects, name ='projects'),
+    path('tasks/', views.tasks, name='tasks'),
+    path('create_task/', views.create_task, name='create_task'),
+    path('create_project/', views.create_project, name='create_project'),
 ]
