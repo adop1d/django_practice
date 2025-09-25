@@ -4,7 +4,7 @@
 
 <h1>tasks</h1>
 <p>This is the tasks page of the website.</p><br><br>
-<div>
+<div class="content">
 <ul>
     {% for t in task %}
         <li><h2>{% if t.done %} ✅ {% else %} ❌ {% endif %}  {{ t.title }}</h2>
@@ -15,10 +15,10 @@
             {% endif %}
             <h4><b>project: {{ t.project.name }}</b></h4>
 
-        <button>
+        <button class="btn btn-primary">
             ❌ Delete
         </button>
-        <button>
+        <button class="btn btn-primary">
             ✅ Mark as Complete
         </button><br><br><br>
         </li>
